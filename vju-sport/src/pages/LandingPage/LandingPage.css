@@ -1,0 +1,235 @@
+/* LandingPage.css */
+
+body {
+  background-image: url('/public/assets/images/1.LandingPage.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-family: 'IBM Plex Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  padding: 20px;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  font-size: 30px;
+}
+
+.logo h1 {
+  font-weight: bold;
+}
+
+.login-buttons {
+  position: absolute;
+  top: 20px;
+  right: 80px;
+  display: flex;
+  gap: 10px;
+}
+
+.login-buttons .btn {
+  font-size: 20px;
+  font-weight: bold;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border-color: #B97CC9;
+  color: #B97CC9;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(185, 124, 201, 0.1);
+}
+
+.btn-success {
+  background-color: #4EB09D;
+  border: none;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #3b9b7a;
+}
+
+.content {
+  text-align: left;
+  position: absolute;
+  left: 150px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sport-title {
+  font-size: 120px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.description {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.action-buttons .btn {
+  font-size: 20px;
+  font-weight: bold;
+  width: 160px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: #9D4EB0;
+  border: none;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #855f9a;
+}
+
+.btn-outline-light {
+  background-color: transparent;
+  border-color: #4EB09D;
+  color: #4EB09D;
+}
+
+.btn-outline-light:hover {
+  background-color: rgba(78, 176, 157, 0.1);
+  color: white;
+}
+
+/* Responsive Design for Larger Screens */
+@media (min-width: 1920px) {  /* 29-inch 2K */
+  .logo {
+    font-size: 36px;
+  }
+
+  .login-buttons {
+    right: 100px;
+    gap: 15px;
+  }
+
+  .login-buttons .btn {
+    font-size: 24px;
+    width: 180px;
+    height: 60px;
+  }
+
+  .content {
+    left: 200px;
+  }
+
+  .sport-title {
+    font-size: 150px;
+  }
+
+  .description {
+    font-size: 36px;
+  }
+
+  .action-buttons .btn {
+    font-size: 22px;
+    width: 180px;
+    height: 65px;
+  }
+}
+
+@media (min-width: 1440px) {  /* Mac 14-inch 3.5K or 16.5-inch FHD */
+  .logo {
+    font-size: 32px;
+  }
+
+  .login-buttons {
+    right: 90px;
+    gap: 12px;
+  }
+
+  .login-buttons .btn {
+    font-size: 22px;
+    width: 170px;
+    height: 55px;
+  }
+
+  .content {
+    left: 180px;
+  }
+
+  .sport-title {
+    font-size: 130px;
+  }
+
+  .description {
+    font-size: 34px;
+  }
+
+  .action-buttons .btn {
+    font-size: 20px;
+    width: 170px;
+    height: 60px;
+  }
+}
+
+@media (min-width: 1280px) {  /* 24-inch FHD */
+  .logo {
+    font-size: 28px;
+  }
+
+  .login-buttons {
+    right: 85px;
+    gap: 10px;
+  }
+
+  .login-buttons .btn {
+    font-size: 20px;
+    width: 160px;
+    height: 50px;
+  }
+
+  .content {
+    left: 160px;
+  }
+
+  .sport-title {
+    font-size: 120px;
+  }
+
+  .description {
+    font-size: 32px;
+  }
+
+  .action-buttons .btn {
+    font-size: 18px;
+    width: 160px;
+    height: 55px;
+  }
+}
