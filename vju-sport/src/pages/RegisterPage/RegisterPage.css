@@ -1,0 +1,59 @@
+/* Card container */
+.card {
+    background-color: #474747;
+    color: white;
+    border: none;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  /* Background image for the right panel */
+  .bg-image {
+    background-image: url('/public/assets/images/1.LandingPage.png');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+  }
+  
+  /* Form styles */
+  .card-body {
+    padding: 2rem;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  input.form-control {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  button.btn-primary {
+    width: 100%;
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  /* Link to login page */
+  .login-link {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .login-link a {
+    font-weight: 500;
+    color: #FF00E6;
+    text-decoration: none;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
