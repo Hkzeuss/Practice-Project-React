@@ -1,0 +1,67 @@
+/*Style Card */
+.card {
+    background-color: #474747;
+    color: white;
+    border: none;
+  }
+/* Cập nhật chiều rộng của card */
+.card {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto; /* Căn giữa card */
+  }
+  
+  /* Đảm bảo rằng hình ảnh sẽ hiển thị đúng */
+  .bg-image {
+    background-image: url('/public/assets/images/1.LandingPage.png');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+  }
+  
+  /* Định dạng cho form */
+  .card-body {
+    padding: 2rem;
+  }
+  
+  /* Định dạng cho label */
+label {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block; /* Đảm bảo label nằm trên cùng */
+  }
+  
+  /* Định dạng các input */
+  input.form-control {
+    width: 100%; /* Đảm bảo input chiếm toàn bộ chiều rộng */
+    margin-bottom: 1rem; /* Khoảng cách giữa các input */
+    text-align: left;
+  }
+  
+  /* Định dạng nút đăng nhập */
+  button.btn-primary {
+    width: 100%; /* Chiều rộng button bằng chiều rộng input */
+    font-weight: bold;
+    padding: 10px; /* Padding cho button */
+  }
+  
+  /* Link đăng ký */
+  .register-link {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .register-link a {
+    font-weight: 500;
+    color: #FF00E6;
+    text-decoration: none;
+  }
+  
+  .register-link a:hover {
+    text-decoration: underline;
+  }
+  
+  
