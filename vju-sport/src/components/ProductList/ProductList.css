@@ -1,0 +1,15 @@
+.product-card {
+    max-width: 300px; /* Giảm độ rộng tối đa của card xuống còn 400px */
+    margin: 0 auto; /* Căn giữa card trong cột */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+  }
+
+  .tittle-product-list{
+    color: black;
+    font-weight: 600px;
+  }
