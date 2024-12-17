@@ -1,0 +1,452 @@
+body{
+    background-image: none;
+}
+/* Product Card Styling */
+.product-card {
+    width: 320px;
+    height: 260px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .product-info {
+    padding: 10px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+  }
+  
+  .current-price {
+    color: #000000;
+    font-weight: bold;
+  }
+  
+  .original-price {
+    text-decoration: line-through;
+    color: #4EB09D;
+  }
+  
+  .product-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+    color:#A39696
+  }
+  
+  .product-desc {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+  }
+  
+  /* Static Card Styling */
+  .static-card {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    margin-bottom: 20px; /* Khoảng cách giữa các static cards */
+  }
+
+  .static-card-large {
+    object-fit: cover;
+  }
+
+  .static-card-small {
+    object-fit: cover;
+    height: 340px;
+  }
+  
+  /* Khoảng cách ngang giữa các product cards */
+  .row.g-4 .col-md-4 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .highlight {
+    color: #FF4D4D;
+  }
+  
+
+
+  /*reponsive*/
+  /* Large devices */
+@media (min-width: 1200px) {
+    .product-title {
+      font-size: 18px;
+    }
+    .product-desc {
+      font-size: 14px;
+    }
+  }
+  
+  /* Medium devices */
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .product-title {
+      font-size: 16px;
+    }
+    .product-desc {
+      font-size: 12px;
+    }
+  }
+  
+  /* Small devices */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .product-title {
+      font-size: 14px;
+    }
+    .product-desc {
+      font-size: 10px;
+    }
+  }
+  
+  /* Mobile devices */
+  @media (max-width: 767px) {
+    .product-title {
+      font-size: 12px;
+    }
+    .product-desc {
+      font-size: 8px;
+    }
+  }
+
+
+
+  .cover-image {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .overlay-text {
+    position: absolute; /* Đảm bảo text nằm trên hình ảnh */
+    top: 50%; /* Căn giữa theo chiều dọc */
+    left: 50px; /* Khoảng cách từ lề trái */
+    transform: translateY(-50%); /* Căn giữa text theo chiều dọc */
+    color: #fff; /* Màu chữ */
+    font-size: 1.2rem; /* Kích thước chữ */
+    text-align: left; /* Căn chữ sang trái */
+    font-weight: bold; /* Chữ đậm */
+  }
+  
+  .overlay-text h2 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .overlay-text p {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  /*New Product Section*/
+  .product-card {
+    max-width: 300px; 
+    margin: 0 auto; /* Căn giữa card trong cột */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+  }
+
+  .tittle-product-list{
+    color: black;
+    font-weight: 600px;
+  }
+  
+
+/* Section Container */
+.about-us__container {
+    display: flex;
+    height: 450px; /* Chiều cao cố định */
+    width: 100%;
+    background-color: #fff; /* Màu nền */
+    overflow: hidden; /* Tránh tràn nội dung */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+    border-radius: 8px; /* Tùy chọn: Bo góc nhẹ */
+  }
+  
+  .about-us__left,
+  .about-us__right {
+    flex: 1; /* Mỗi phần chiếm 50% chiều rộng */
+    display: flex;
+    justify-content: center; /* Căn giữa nội dung theo chiều ngang */
+    align-items: center; /* Căn giữa nội dung theo chiều dọc */
+  }
+  
+  .about-us__image {
+    width: 100%; /* Ảnh chiếm đầy đủ không gian bên trái */
+    height: 100%;
+    object-fit: cover; /* Căn chỉnh hình ảnh không bị méo */
+  }
+  
+  .about-us__right {
+    display: flex;
+    flex-direction: column; /* Các phần tử xếp dọc */
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    padding: 20px 40px; /* Khoảng cách cho phần nội dung */
+  }
+  
+  .about-us__title {
+    color: #1abc9c; /* Màu xanh nhạt */
+    font-size: 2rem;
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+    text-align: center; /* Căn giữa tiêu đề */
+  }
+  
+  .about-us__right p {
+    width: 100%; /* Chiếm toàn bộ chiều ngang phần bên phải */
+    text-align: left; /* Căn lề trái cho văn bản */
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 10px; /* Khoảng cách giữa các đoạn văn */
+  }
+
+/* Màu sắc và font-weight tùy chỉnh */
+.vju-sport-red {
+    color: #D70018; /* Màu đỏ đậm */
+    font-weight: 600; /* Độ đậm medium */
+  }
+  
+  .vju-sport-pink {
+    color: #FF00E6; /* Màu hồng neon */
+    font-weight: 600; /* Độ đậm medium */
+  }
+  
+  .semi-bold {
+    font-weight: 600; /* Độ đậm semi-bold */
+  }
+  
+  .about-us__right p {
+    text-align: left; /* Căn lề trái */
+    font-weight: 500; /* In đậm medium cho các chữ còn lại */
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .about-us__title {
+    text-align: center; /* Căn giữa tiêu đề */
+    color: #1abc9c; /* Màu xanh nhạt */
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  /*About us section*/
+  .partners__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    height: 300px; /* Chiều cao cho section */
+    background-color: #FAFAFA; /* Màu nền nhẹ */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    border-radius: 7px; /* Bo tròn góc section */
+  }
+  
+  .partners__title {
+    font-size: 1.8rem;
+    font-weight: 600; /* Semi-bold */
+    margin-bottom: 20px; /* Khoảng cách giữa tiêu đề và logo */
+    color: #333;
+    text-align: center;
+  }
+  
+  .partners__logos {
+    display: flex;
+    justify-content: center; /* Căn giữa các logo */
+    align-items: center;
+    gap: 40px; /* Khoảng cách giữa các logo */
+  }
+  
+  .partners__logo {
+    width: 150px; /* Kích thước cố định cho logo */
+    height: auto;
+    object-fit: contain; /* Đảm bảo logo không bị méo */
+    transition: transform 0.3s ease; /* Hiệu ứng hover */
+  }
+  
+  .partners__logo:hover {
+    transform: scale(1.1); /* Hiệu ứng phóng to nhẹ khi hover */
+  }
+
+
+  /* Container overlay */
+.subscribe-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 10;
+}
+
+/* Heading text */
+.subscribe-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Input và button group */
+.subscribe-input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Khoảng cách giữa input và button */
+}
+
+/* Input field */
+.subscribe-input {
+  background-color: rgba(255, 255, 255, 0.1); /* Nền trong nhẹ */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  outline: none;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Placeholder màu trắng nhẹ */
+.subscribe-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Button style */
+.subscribe-button {
+  background-color: #FF4D4D;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.subscribe-button:hover {
+  background-color: #e64444;
+}
+
+
+
+
+/* subscribe-section */
+.subscribe-container {
+    height: 250px; /* Chiều cao cố định */
+    position: relative; /* Cho phép overlay nằm chính xác */
+    overflow: hidden; /* Ẩn phần ảnh dư thừa */
+    border-radius: 7px;
+    width: 100%;
+  }
+  
+  /* Ảnh nền */
+  .subscribe-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ảnh bao phủ toàn bộ khung */
+  }
+  
+  /* Nội dung overlay */
+  .subscribe-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 10;
+    width: 100%;
+    padding: 0 20px; /* Thêm padding để tránh chữ sát mép */
+  }
+  
+  /* Tiêu đề: Hiển thị 1 dòng và giảm kích thước chữ */
+  .subscribe-title {
+    font-size: 1rem; /* Kích thước chữ nhỏ */
+    font-weight: 600; /* Độ đậm chữ */
+    white-space: nowrap; /* Giữ text trên 1 dòng */
+    overflow: hidden; /* Ẩn phần dư thừa */
+    text-overflow: ellipsis; /* Thêm "..." nếu quá dài */
+    margin-bottom: 15px; /* Khoảng cách dưới */
+  }
+  
+  /* Form input và button */
+  .subscribe-form {
+    display: flex;
+    flex-direction: column; /* Button dưới input */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    gap: 10px; /* Khoảng cách giữa input và button */
+  }
+  
+  /* Input */
+  .subscribe-input {
+    background-color: rgba(255, 255, 255, 0.1); /* Nền hơi trong */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Viền mờ */
+    color: #fff;
+    padding: 12px 16px; /* Kích thước padding */
+    font-size: 1rem;
+    border-radius: 8px; /* Bo góc input */
+    outline: none; /* Loại bỏ đường viền mặc định */
+    max-width: 400px;
+    width: 100%;
+    text-align: center; /* Căn giữa text và placeholder */
+  }
+  
+  .subscribe-input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Màu chữ placeholder nhạt */
+    text-align: center; /* Căn giữa placeholder */
+  }
+  
+  /* Button */
+.subscribe-button {
+    background-color: #FF4D4D;
+    color: #fff;
+    border: none;
+    padding: 8px 16px; /* Giảm padding để button nhỏ hơn */
+    border-radius: 8px;
+    font-size: 0.9rem; /* Giảm kích thước chữ */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 170px; /* Giảm chiều rộng tối đa của button */
+  }
+  
+  .subscribe-button:hover {
+    background-color: #e64444;
+  }
+  
+  
+  
+
+  
