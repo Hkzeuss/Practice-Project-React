@@ -25,16 +25,25 @@ const LoginPage = () => {
       }
   
       const data = await response.json();
+  
       if (data.success === false) {
+        // Xử lý khi login thất bại
         alert("Email hoặc mật khẩu không chính xác!");
-      } else {
+      } else if (data.token) {
+        // Xử lý khi login thành công
         alert("Đăng nhập thành công!");
         console.log("Token:", data.token);
+        // Lưu token nếu cần thiết
+        // localStorage.setItem('token', data.token);
+      } else {
+        alert("Có lỗi không mong muốn xảy ra!");
       }
     } catch (error) {
       console.error("Có lỗi xảy ra:", error);
       alert("Không thể kết nối tới server!");
+      
     }
+    
   };
   
 
