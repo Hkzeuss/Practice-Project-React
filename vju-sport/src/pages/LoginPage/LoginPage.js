@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import thêm useNavigate
 import "./LoginPage.css";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // Thêm state cho việc hiển thị mật khẩu
+  const navigate = useNavigate(); // Khai báo useNavigate để điều hướng
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,19 +34,20 @@ const LoginPage = () => {
         // Xử lý khi login thành công
         alert("Đăng nhập thành công!");
         console.log("Token:", data.token);
-        // Lưu token nếu cần thiết
-        // localStorage.setItem('token', data.token);
+
+        // Lưu token vào localStorage (tuỳ chọn)
+        localStorage.setItem("token", data.token);
+
+        // Điều hướng tới ProductListPage
+        navigate("/product-list");
       } else {
         alert("Có lỗi không mong muốn xảy ra!");
       }
     } catch (error) {
       console.error("Có lỗi xảy ra:", error);
       alert("Không thể kết nối tới server!");
-      
     }
-    
   };
-  
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword); // Toggle giữa hiển thị mật khẩu và ẩn mật khẩu
