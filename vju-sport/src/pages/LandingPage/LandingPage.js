@@ -4,7 +4,7 @@ import "./LandingPage.css";
 
 const LandingPage = () => {
   return (
-    <div className="container-fluid text-center d-flex align-items-center justify-content-center vh-100 position-relative">
+    <div className="background-landingPage container-fluid text-center d-flex align-items-center justify-content-center vh-100 position-relative">
       <div className="logo">
         <h1>VJU SPORT</h1>
       </div>
