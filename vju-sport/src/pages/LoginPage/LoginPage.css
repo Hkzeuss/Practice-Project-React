@@ -1,4 +1,9 @@
 /*Style Card */
+.background-loginPage{
+  background-image: url('/public/assets/images/1.LandingPage.png');
+  background-size: cover;
+  background-position: center;
+}
 .card {
     background-color: #474747;
     color: white;

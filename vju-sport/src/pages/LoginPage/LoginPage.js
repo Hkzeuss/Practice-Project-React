@@ -7,17 +7,43 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // Thêm state cho việc hiển thị mật khẩu
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Xử lý logic đăng nhập tại đây
+    try {
+      const response = await fetch("http://localhost:8000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      if (!response.ok) {
+        const error = await response.json();
+        alert(error.error || "Đăng nhập thất bại!");
+        return;
+      }
+  
+      const data = await response.json();
+      if (data.success === false) {
+        alert("Email hoặc mật khẩu không chính xác!");
+      } else {
+        alert("Đăng nhập thành công!");
+        console.log("Token:", data.token);
+      }
+    } catch (error) {
+      console.error("Có lỗi xảy ra:", error);
+      alert("Không thể kết nối tới server!");
+    }
   };
+  
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword); // Toggle giữa hiển thị mật khẩu và ẩn mật khẩu
   };
 
   return (
-    <div className="container-fluid d-flex justify-content-center align-items-center vh-100">
+    <div className="background-loginPage container-fluid d-flex justify-content-center align-items-center vh-100">
       <div className="card shadow-lg">
         <div className="row g-0">
           {/* Bên trái chứa form đăng nhập */}
