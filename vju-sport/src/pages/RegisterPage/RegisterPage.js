@@ -28,7 +28,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="container-fluid d-flex justify-content-center align-items-center vh-100">
+    <div className="background-registerPage container-fluid d-flex justify-content-center align-items-center vh-100">
       <div className="card shadow-lg">
         <div className="row g-0">
           {/* Bên trái chứa form đăng ký */}
