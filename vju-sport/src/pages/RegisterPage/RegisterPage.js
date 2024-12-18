@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Thêm useNavigate
 import "./RegisterPage.css";
 
 const RegisterPage = () => {
@@ -8,15 +8,44 @@ const RegisterPage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // State cho xác nhận mật khẩu
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate(); // Khai báo useNavigate để điều hướng
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       alert("Mật khẩu và Xác nhận mật khẩu không khớp!");
       return;
     }
-    // Xử lý logic đăng ký tại đây
+
+    try {
+      const response = await fetch("http://localhost:8000/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName,
+          email,
+          password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Xử lý lỗi từ server
+        alert(data.error || "Đăng ký thất bại!");
+        return;
+      }
+
+      // Xử lý thành công
+      alert("Đăng ký thành công!");
+      navigate("/login"); // Điều hướng đến trang đăng nhập
+    } catch (error) {
+      console.error("Có lỗi xảy ra:", error);
+      alert("Không thể kết nối tới server!");
+    }
   };
 
   const handleTogglePassword = () => {
