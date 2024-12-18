@@ -1,5 +1,5 @@
-body{
-    background-image: none;
+.background-ProductListPage {
+  background-image: none;
 }
 /* Product Card Styling */
 .product-card {
