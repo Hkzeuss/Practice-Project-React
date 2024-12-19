@@ -11,43 +11,42 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-  
+      const response = await fetch(
+        "https://676383e717ec5852cae91a1b.mockapi.io/sports-shop/api/v1/user"
+      );
       if (!response.ok) {
-        const error = await response.json();
-        alert(error.error || "Đăng nhập thất bại!");
+        alert("Không thể kết nối tới server!");
         return;
       }
   
-      const data = await response.json();
+      const users = await response.json();
   
-      if (data.success === false) {
-        // Xử lý khi login thất bại
-        alert("Email hoặc mật khẩu không chính xác!");
-      } else if (data.token) {
-        // Xử lý khi login thành công
+      if (!Array.isArray(users) || users.length === 0) {
+        alert("Không tìm thấy người dùng!");
+        return;
+      }
+  
+      // Tìm user có email và password trùng khớp
+      const user = users.find(
+        (u) => u.email === email && u.password === password
+      );
+  
+      if (user) {
         alert("Đăng nhập thành công!");
-        console.log("Token:", data.token);
-
-        // Lưu token vào localStorage (tuỳ chọn)
-        localStorage.setItem("token", data.token);
-
+        console.log("User info:", user);
+  
         // Điều hướng tới ProductListPage
-        navigate("/product-list");
+        navigate("/productslist");
       } else {
-        alert("Có lỗi không mong muốn xảy ra!");
+        alert("Email hoặc mật khẩu không chính xác!");
       }
     } catch (error) {
       console.error("Có lỗi xảy ra:", error);
       alert("Không thể kết nối tới server!");
     }
   };
+  
+  
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword); // Toggle giữa hiển thị mật khẩu và ẩn mật khẩu
