@@ -13,13 +13,30 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
     if (password !== confirmPassword) {
       alert("Mật khẩu và Xác nhận mật khẩu không khớp!");
       return;
     }
-
+  
     try {
-      const response = await fetch("http://localhost:8000/api/register", {
+      // Kiểm tra email đã tồn tại hay chưa
+      const checkResponse = await fetch("https://676383e717ec5852cae91a1b.mockapi.io/sports-shop/api/v1/user");
+      const existingUsers = await checkResponse.json();
+  
+      if (checkResponse.ok) {
+        const isEmailExist = existingUsers.some(user => user.email === email);
+        if (isEmailExist) {
+          alert("Email đã tồn tại. Vui lòng sử dụng email khác!");
+          return;
+        }
+      } else {
+        alert("Không thể kiểm tra thông tin email. Vui lòng thử lại sau!");
+        return;
+      }
+  
+      // Tiến hành đăng ký
+      const response = await fetch("https://676383e717ec5852cae91a1b.mockapi.io/sports-shop/api/v1/user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,15 +47,15 @@ const RegisterPage = () => {
           password,
         }),
       });
-
+  
       const data = await response.json();
-
+  
       if (!response.ok) {
         // Xử lý lỗi từ server
         alert(data.error || "Đăng ký thất bại!");
         return;
       }
-
+  
       // Xử lý thành công
       alert("Đăng ký thành công!");
       navigate("/login"); // Điều hướng đến trang đăng nhập
@@ -47,6 +64,7 @@ const RegisterPage = () => {
       alert("Không thể kết nối tới server!");
     }
   };
+  
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
