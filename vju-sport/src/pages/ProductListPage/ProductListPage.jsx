@@ -1,188 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ProductListPage.css";
 import ProductList from "../../components/ProductList/ProductList";
 import SaleProductList from "../../components/SaleProductList/SaleProductList";
-import Footer from '../../components/Footer/Footer';
+import Footer from "../../components/Footer/Footer";
 
 const ProductListPage = () => {
-  const saleProducts = [
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ tự nhiên",
-      description: "Adidas F50 Elite Laceless FG - Advancement Pack",
-      currentPrice: "1.000.000 VND",
-      originalPrice: "1.500.000 VND",
-    },
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng cao cấp",
-      description: "Nike Phantom GX Elite DF FG",
-      currentPrice: "2.000.000 VND",
-      originalPrice: "2.500.000 VND",
-    },
-    
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ tự nhiên",
-      description: "Adidas F50 Elite Laceless FG - Advancement Pack",
-      currentPrice: "1.000.000 VND",
-      originalPrice: "1.500.000 VND",
-    },
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng cao cấp",
-      description: "Nike Phantom GX Elite DF FG",
-      currentPrice: "2.000.000 VND",
-      originalPrice: "2.500.000 VND",
-    },
+  const [saleProducts, setSaleProducts] = useState([]);
+  const [categories, setCategories] = useState({});
 
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ tự nhiên",
-      description: "Adidas F50 Elite Laceless FG - Advancement Pack",
-      currentPrice: "1.000.000 VND",
-      originalPrice: "1.500.000 VND",
-    },
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng cao cấp",
-      description: "Nike Phantom GX Elite DF FG",
-      currentPrice: "2.000.000 VND",
-      originalPrice: "2.500.000 VND",
-    },
-  ];
+  useEffect(() => {
+    // Fetch sale products
+    fetch("https://676383e717ec5852cae91a1b.mockapi.io/sports-shop/api/v1/products")
+      .then((response) => response.json())
+      .then((data) => setSaleProducts(data))
+      .catch((error) => console.error("Error fetching sale products:", error));
 
-  const featuredProducts = [
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ tự nhiên",
-      description: "Adidas F50 Elite Laceless FG - Advancement Pack",
-      currentPrice: "1.000.000 VND",
-      originalPrice: "1.500.000 VND",
-    },
+    // Fetch all products to get categories
+    fetch("https://676383e717ec5852cae91a1b.mockapi.io/sports-shop/api/v1/products")
+      .then((response) => response.json())
+      .then((data) => {
+        const categoriesData = data.reduce((acc, product) => {
+          const { category, isFeatured } = product;
+          if (!acc[category]) {
+            acc[category] = [];
+          }
+          acc[category].push(product);
 
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ tự nhiên",
-      description: "Adidas F50 Elite Laceless FG - Advancement Pack",
-      currentPrice: "1.000.000 VND",
-      originalPrice: "1.500.000 VND",
-    },
-
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ tự nhiên",
-      description: "Adidas F50 Elite Laceless FG - Advancement Pack",
-      currentPrice: "1.000.000 VND",
-      originalPrice: "1.500.000 VND",
-    },
-
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ tự nhiên",
-      description: "Adidas F50 Elite Laceless FG - Advancement Pack",
-      currentPrice: "1.000.000 VND",
-      originalPrice: "1.500.000 VND",
-    },
-
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ tự nhiên",
-      description: "Adidas F50 Elite Laceless FG - Advancement Pack",
-      currentPrice: "1.000.000 VND",
-      originalPrice: "1.500.000 VND",
-    },
-
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ tự nhiên",
-      description: "Adidas F50 Elite Laceless FG - Advancement Pack",
-      currentPrice: "1.000.000 VND",
-      originalPrice: "1.500.000 VND",
-    },
-
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ tự nhiên",
-      description: "Adidas F50 Elite Laceless FG - Advancement Pack",
-      currentPrice: "1.000.000 VND",
-      originalPrice: "1.500.000 VND",
-    },
-
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ tự nhiên",
-      description: "Adidas F50 Elite Laceless FG - Advancement Pack",
-      currentPrice: "1.000.000 VND",
-      originalPrice: "1.500.000 VND",
-    },
-  ];
-
-  const artificialGrassShoes = [
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ nhân tạo",
-      description: "Nike Mercurial Vapor 14 Academy TF",
-      currentPrice: "800.000 VND",
-      originalPrice: "1.200.000 VND",
-    },
-
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ nhân tạo",
-      description: "Nike Mercurial Vapor 14 Academy TF",
-      currentPrice: "800.000 VND",
-      originalPrice: "1.200.000 VND",
-    },
-
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ nhân tạo",
-      description: "Nike Mercurial Vapor 14 Academy TF",
-      currentPrice: "800.000 VND",
-      originalPrice: "1.200.000 VND",
-    },
-
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ nhân tạo",
-      description: "Nike Mercurial Vapor 14 Academy TF",
-      currentPrice: "800.000 VND",
-      originalPrice: "1.200.000 VND",
-    },
-
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ nhân tạo",
-      description: "Nike Mercurial Vapor 14 Academy TF",
-      currentPrice: "800.000 VND",
-      originalPrice: "1.200.000 VND",
-    },
-
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ nhân tạo",
-      description: "Nike Mercurial Vapor 14 Academy TF",
-      currentPrice: "800.000 VND",
-      originalPrice: "1.200.000 VND",
-    },
-
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ nhân tạo",
-      description: "Nike Mercurial Vapor 14 Academy TF",
-      currentPrice: "800.000 VND",
-      originalPrice: "1.200.000 VND",
-    },
-
-    {
-      image: "/assets/images/4.Product1.png",
-      title: "Giày đá bóng sân cỏ nhân tạo",
-      description: "Nike Mercurial Vapor 14 Academy TF",
-      currentPrice: "800.000 VND",
-      originalPrice: "1.200.000 VND",
-    },
-  ];
+          if (isFeatured) {
+            if (!acc["featured"]) {
+              acc["featured"] = [];
+            }
+            acc["featured"].push(product);
+          }
+          return acc;
+        }, {});
+        setCategories(categoriesData);
+      })
+      .catch((error) => console.error("Error fetching products:", error));
+  }, []);
 
   return (
     <>
@@ -206,7 +61,7 @@ const ProductListPage = () => {
             </div>
           </div>
 
-          {/* sale Product List */}
+          {/* Sale Product List */}
           <div className="col-md-10">
             <SaleProductList products={saleProducts} />
           </div>
@@ -223,20 +78,31 @@ const ProductListPage = () => {
             <h3>BẠN CÓ BIẾT?</h3>
             <p>
               Hơn <span className="highlight">10.000+</span> khách hàng đã tham gia, và mỗi ngày có đến
-              <span className="highlight"> 300+</span> đơn hàng<br></br> được thực hiện thông qua VJU SPORT.
+              <span className="highlight"> 300+</span> đơn hàng<br /> được thực hiện thông qua VJU SPORT.
             </p>
           </div>
         </div>
 
         {/* Product Lists */}
-        <ProductList title="Sản phẩm nổi bật" products={featuredProducts} />
-        <ProductList title="Giày cỏ nhân tạo" products={artificialGrassShoes} />
+        {categories["featured"] && (
+          <ProductList title="Sản phẩm nổi bật" products={categories["featured"]} />
+        )}
+        {Object.keys(categories).map(
+          (category) =>
+            category !== "featured" && (
+              <ProductList
+                key={category}
+                title={category}
+                products={categories[category]}
+              />
+            )
+        )}
 
         {/* About Us Section */}
         <div className="about-us__container mt-3">
           <div className="about-us__left">
             <img
-              src="/assets/images/1.LandingPage.png" // Thay bằng đường dẫn ảnh của bạn
+              src="/assets/images/1.LandingPage.png"
               alt="About Us"
               className="about-us__image"
             />
@@ -244,24 +110,12 @@ const ProductListPage = () => {
           <div className="about-us__right">
             <h1 className="about-us__title">Về Chúng Tôi</h1>
             <p>
-              Chào mừng đến với{" "}
-              <strong className="vju-sport-red">VJU SPORT</strong>.<br></br> Tại{" "}
-              <strong className="vju-sport-red">VJU SPORT</strong>, chúng tôi đang
-              thay đổi cách mua sắm đồ thể thao. Sứ mệnh của chúng tôi là mang đến
-              trải nghiệm mua sắm liền mạch và thú vị cho mọi vận động viên. Dù bạn
-              cần trang phục, dụng cụ hay phụ kiện cho bóng đá, tennis, bóng rổ,
-              bóng chuyền hay bất kỳ môn thể thao nào,{" "}
-              <strong className="vju-sport-pink">VJU SPORT</strong> luôn có sẵn
-              những sản phẩm chất lượng cho bạn.
+              Chào mừng đến với <strong className="vju-sport-red">VJU SPORT</strong>.<br /> Tại <strong className="vju-sport-red">VJU SPORT</strong>, chúng tôi đang
+              thay đổi cách mua sắm đồ thể thao. Sứ mệnh của chúng tôi là mang đến trải nghiệm mua sắm liền mạch và thú vị cho mọi vận động viên.
             </p>
-            <p className="semi-bold">
-              Sứ Mệnh Của Chúng Tôi Là Gì?
-            </p>
+            <p className="semi-bold">Sứ Mệnh Của Chúng Tôi Là Gì?</p>
             <p>
-              Chúng tôi cam kết mang lại sự tiện lợi và chất lượng trong việc mua
-              sắm đồ thể thao. Với các sản phẩm hàng đầu và nhiều lựa chọn phong
-              phú, chúng tôi đảm bảo bạn sẽ tìm thấy mọi thứ mình cần để nâng cao
-              trải nghiệm tập luyện và thi đấu.
+              Chúng tôi cam kết mang lại sự tiện lợi và chất lượng trong việc mua sắm đồ thể thao. Với các sản phẩm hàng đầu và nhiều lựa chọn phong phú, chúng tôi đảm bảo bạn sẽ tìm thấy mọi thứ mình cần để nâng cao trải nghiệm tập luyện và thi đấu.
             </p>
           </div>
         </div>
@@ -271,25 +125,24 @@ const ProductListPage = () => {
           <h2 className="partners__title">Đối Tác Của Chúng Tôi</h2>
           <div className="partners__logos">
             <img
-              src="/assets/images/LogoVjuBlack.png" // Logo 1
+              src="/assets/images/LogoVjuBlack.png"
               alt="logo-VJU-Black"
               className="partners__logo"
             />
             <img
-              src="/assets/images/LogoVNU.png" // Logo 2
+              src="/assets/images/LogoVNU.png"
               alt="Partner Logo-VNU"
               className="partners__logo"
             />
             <img
-              src="/assets/images/LogoVjuColor.png" // Logo 3
+              src="/assets/images/LogoVjuColor.png"
               alt="Logo-VJU-Color"
               className="partners__logo"
             />
           </div>
         </div>
 
-
-        {/* subscribe-section */}
+        {/* Subscribe Section */}
         <div className="subscribe-container position-relative mt-2">
           <img
             src="/assets/images/Neymar.png"
