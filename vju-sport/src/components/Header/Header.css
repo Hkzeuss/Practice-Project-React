@@ -1,0 +1,203 @@
+
+
+.nav-headerpage {
+    background-image: url('/public/assets/images/1.LandingPage.png');
+    background-size: cover;
+    height: 100px;
+    display: flex;
+    align-items: center;  /* Căn giữa các thành phần theo chiều dọc */
+    justify-content: center;
+}
+
+.custom-h6 {
+    font-size: 25px;  /* Kích thước chữ */
+    font-weight: bold;
+    color: white;  /* Màu chữ */
+    margin-left: 30px;     /* Loại bỏ margin trên dưới */
+}
+
+.custom-dropdown-toggle {
+    margin-left: 40px;
+    background-color: #E7726F;
+    color: white;
+    font-weight: bold;
+}
+
+.custom-dropdown-toggle:hover {
+    background-color: #E7726F;
+    color: white;
+}
+
+.custom-dropdown-toggle::after {
+    border: none;   /* Ẩn mũi tên */
+    box-shadow: none;  /* Ẩn mũi tên */
+}
+
+
+/* Search Bar */
+.Search-bar {
+    height: 50px;
+    background-color: #f8f9fa; 
+    display: flex; 
+    align-items: center; 
+    padding: 0 10px; 
+    border-radius: 12px;
+    margin-left: 30px;
+
+}
+
+.Search-bar .search-icon {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: #6c757d; 
+    font-size: 1.25rem; 
+    margin-right: 10px; 
+}
+
+.Search-bar .search-input {
+    flex-grow: 1; 
+    display: flex; 
+    align-items: center; 
+}
+
+.search-input {
+    height: 100%;
+}
+
+.Search-bar .search-input input {
+    margin: 0; 
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+.Search-bar .search-input input:focus {
+    border: none; /* Không viền */
+    outline: none; /* Không highlight */
+    box-shadow: none; /* Loại bỏ shadow của Bootstrap */
+}
+
+.Search-bar-wrapper {
+    position: relative;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.search-results .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    transition: background-color 0.2s;
+}
+
+.search-results .dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.search-results img {
+    border-radius: 4px;
+}
+
+.search-results p {
+    margin: 0;
+    padding: 10px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+
+
+.Search-bar .search-input input::placeholder {
+    color: #adb5bd; /* Màu placeholder */
+}
+
+
+/*Call Information*/
+.Call-information {
+    display: flex; /* Sử dụng Flexbox để đặt icon và p cùng hàng */
+    align-items: center; /* Căn giữa icon và p theo chiều dọc */
+    color: white; /* Đặt màu văn bản là trắng */
+    margin-left: 30px;
+}
+
+.Call-information p {
+    margin: 0;
+    font-weight: bold; /* Làm chữ in đậm */
+    margin-left: 10px; /* Khoảng cách giữa icon và văn bản */
+}
+
+.Call-information svg {
+    font-size: 1.5rem; /* Kích thước icon */
+    color: white; /* Đảm bảo icon có màu trắng */
+    margin: 0;
+}
+
+/* Nearby Store */
+.Nearby-store {
+    display: flex; /* Sử dụng Flexbox để đặt icon và p cùng hàng */
+    align-items: center; /* Căn giữa icon và p theo chiều dọc */
+    color: white; /* Đặt màu văn bản là trắng */
+    margin-left: 30px;
+}
+
+.Nearby-store p {
+    margin: 0;
+    font-weight: bold; /* Làm chữ in đậm */
+    margin-left: 10px; /* Khoảng cách giữa icon và văn bản */
+}
+
+.Nearby-store svg {
+    font-size: 1.5rem; /* Kích thước icon */
+    color: white; /* Đảm bảo icon có màu trắng */
+    margin: 0;
+}
+
+/*Card*/
+.Shopping-cart {
+    display: flex;
+    align-items: center; 
+    color: white; 
+    margin-left: 30px;
+}
+
+.Shopping-cart p {
+    margin: 0;
+    font-weight: bold; /* Làm chữ in đậm */
+    margin-left: 10px; /* Khoảng cách giữa icon và văn bản */
+}
+
+.Shopping-cart svg {
+    font-size: 1.5rem; /* Kích thước icon */
+    color: white; /* Đảm bảo icon có màu trắng */
+    margin: 0;
+}
+
+/*Username-account*/
+.Username-account {
+    display: flex; 
+    align-items: center; 
+    color: white; 
+    margin-left: 30px;
+}
+
+.Username-account h6 {
+    margin: 0;
+    font-weight: bold; 
+    margin-left: 10px; 
+}
