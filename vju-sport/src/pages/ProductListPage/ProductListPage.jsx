@@ -3,6 +3,7 @@ import "./ProductListPage.css";
 import ProductList from "../../components/ProductList/ProductList";
 import SaleProductList from "../../components/SaleProductList/SaleProductList";
 import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
 
 const ProductListPage = () => {
   const [saleProducts, setSaleProducts] = useState([]);
@@ -41,6 +42,7 @@ const ProductListPage = () => {
 
   return (
     <>
+      <Header />
       <div className="container background-ProductListPage mt-5">
         <div className="row">
           {/* Left Static Cards */}
