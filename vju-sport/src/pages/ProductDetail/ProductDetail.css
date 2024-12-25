@@ -1,0 +1,32 @@
+.product-detail-container {
+    padding: 20px;
+  }
+  
+  .product-image img {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .product-info {
+    padding: 20px;
+  }
+  
+  .product-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .product-price {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  
+  .product-description {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  .btn-add-to-cart {
+    font-size: 1rem;
+    padding: 10px;
+  }
