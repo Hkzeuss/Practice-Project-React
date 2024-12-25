@@ -7,7 +7,6 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // Thêm state cho việc hiển thị mật khẩu
   const navigate = useNavigate(); // Khai báo useNavigate để điều hướng
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -34,6 +33,9 @@ const LoginPage = () => {
       if (user) {
         alert("Đăng nhập thành công!");
         console.log("User info:", user);
+
+        // Lưu thông tin user vào localStorage
+        localStorage.setItem("fullname", user.fullname);
   
         // Điều hướng tới ProductListPage
         navigate("/productslist");
@@ -119,3 +121,4 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
