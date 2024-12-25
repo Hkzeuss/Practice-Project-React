@@ -10,13 +10,13 @@ const Header = () => {
   const [categories, setCategories] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [fullname, setFullname] = useState(""); // State lưu fullname
+  const [fullName, setFullName] = useState(""); // State lưu fullName
 
   useEffect(() => {
-    // Lấy fullname từ localStorage
-    const storedFullname = localStorage.getItem("fullname");
-    if (storedFullname) {
-      setFullname(storedFullname);
+    // Lấy fullName từ localStorage
+    const storedFullName = localStorage.getItem("fullName");
+    if (storedFullName) {
+      setFullName(storedFullName);
     }
 
     // Fetch categories
@@ -163,8 +163,8 @@ const Header = () => {
       </div>
 
       <div className="Username-account">
-        {/* Hiển thị fullname từ localStorage */}
-        <h6>{fullname || "Tài khoản"}</h6>
+        {/* Hiển thị fullName từ localStorage */}
+        <h6>{fullName || "Tài khoản"}</h6>
       </div>
     </nav>
   );
