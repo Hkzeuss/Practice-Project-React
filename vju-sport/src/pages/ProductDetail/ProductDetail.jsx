@@ -1,66 +1,91 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState } from "react";
 import "./ProductDetail.css";
 
 const ProductDetail = () => {
-  const { id } = useParams(); // Lấy id sản phẩm từ URL
-  const [product, setProduct] = useState(null);
+  const [selectedSize, setSelectedSize] = useState("UK 4");
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const response = await fetch(
-          `https://676383e717ec5852cae91a1b.mockapi.io/sports-shop/api/v1/products/${id}`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch product details");
-        }
-        const data = await response.json();
-        setProduct(data);
-      } catch (error) {
-        console.error("Error fetching product:", error);
-      }
-    };
-
-    fetchProduct();
-  }, [id]);
-
-  if (!product) {
-    return <div>Loading...</div>;
-  }
-
+  const sizes = ["UK 13.5", "UK 1", "UK 1.5", "UK 2", "UK 2.5", "UK 3", "UK 3.5", "UK 4", "UK 4.5", "UK 5", "UK 5.5"];
+  
   return (
-    <div className="product-detail-container container-fluid d-flex">
-      {/* Hình ảnh sản phẩm */}
-      <div className="product-image col-md-6 d-flex justify-content-center align-items-center">
-        <img
-          src={product.image}
-          alt={product.title}
-          className="img-fluid"
-          style={{ maxHeight: "500px", objectFit: "contain" }}
-        />
-      </div>
-
-      {/* Thông tin sản phẩm */}
-      <div className="product-info col-md-6 d-flex flex-column justify-content-center">
-        <h1 className="product-title">{product.title}</h1>
-        <h2 className="product-price text-danger">{product.currentPrice} đ</h2>
-        <p className="product-description">{product.description}</p>
-        <div className="product-size my-3">
-          <label htmlFor="size-select" className="form-label">
-            Size:
-          </label>
-          <select id="size-select" className="form-select w-50">
-            {product.sizes.map((size, index) => (
-              <option key={index} value={size}>
-                {size}
-              </option>
-            ))}
-          </select>
+    <div className="product-page">
+      <div className="product-page-container">
+        {/* Left Section: Image Gallery */}
+        <div className="image-section">
+          <div className="main-image">
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/images/5.anh san pham 2.png`}
+              alt="Main Product"
+            />
+          </div>
+          <div className="thumbnail-gallery">
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/images/5.anh san pham 1.png`}
+              alt="Thumbnail 1"
+            />
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/images/5.anh san pham 3.png`}
+              alt="Thumbnail 2"
+            />
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/images/5.anh san pham 4.png`}
+              alt="Thumbnail 3"
+            />
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/images/5.anh san pham 5.png`}
+              alt="Thumbnail 4"
+            />
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/images/5.anh san pham 6.png`}
+              alt="Thumbnail 5"
+            />
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/images/5.anh san pham 7.png`}
+              alt="Thumbnail 6"
+            />
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/images/5.anh san pham 8.png`}
+              alt="Thumbnail 7"
+            />
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/images/5.anh san pham 9.png`}
+              alt="Thumbnail 8"
+            />
+          </div>
         </div>
-        <button className="btn btn-primary btn-add-to-cart w-50">
-          Add to Cart
-        </button>
+
+        {/* Right Section: Product Details */}
+        <div className="info-section">
+          <h1 className="product-title">Nike Jr. Mercurial Superfly 10 Academy</h1>
+          <p className="product-description">
+          Biểu tượng tối thượng của tốc độ. Trở nên không thể chạm tới trên sân với giày đá bóng Nike Jr. Mercurial Superfly 10 Academy. Giày được tinh chỉnh để mang lại độ nhạy bén cao, với hệ thống bám sóng ở phần trước giúp tăng cường sự tương tác với mặt đất, tối đa hóa hiệu ứng Zoom Air, giữ bạn nhanh hơn lâu hơn. 
+          </p>
+          <div className="price">
+            <span className="current-price">2.000.000 vnđ</span>
+            <span className="original-price">2.500.000 vnđ</span>
+          </div>
+
+          {/* Size Selector */}
+          <div className="size-section">
+            <h3>Select Size</h3>
+            <div className="size-options">
+              {sizes.map((size) => (
+                <button
+                  key={size}
+                  className={selectedSize === size ? "selected" : ""}
+                  onClick={() => setSelectedSize(size)}
+                >
+                  {size}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Buttons */}
+          <div className="buttons">
+            <button className="add-to-bag">THÊM VÀO GIỎ</button>
+          </div>
+
+        </div>
       </div>
     </div>
   );
